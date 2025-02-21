@@ -1,14 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport"
-          content="width=device-width,
-                   initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Ти Жопа!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердечка</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #000000;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: #ff00ff;
+            margin: 150px auto;
+            font-size: 97px;
+        }
+        h2 {
+            color: #ff00ff;
+            font-size: 50px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        #yesBtn {
+            background-color: #ff00ff;
+            color: white;
+        }
+        #noBtn {
+            background-color: #bdbdbd;
+            color: white;
+        }
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            color: red;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-50px);
+            }
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>Ти Жопа!</h1>
+    <h2>Ти мене Любиш?</h2>
+    <div class="container">
+        <button id="yesBtn">Так</button>
+        <button id="noBtn">Ні</button>
+    </div>
+    <script>
+        document.getElementById("yesBtn").addEventListener("click", function() {
+            for (let i = 0; i < 20; i++) {
+                createHeart();
+            }
+        });
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
