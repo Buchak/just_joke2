@@ -16,6 +16,7 @@
             color: #ff00ff;
             margin: 150px auto;
             font-size: 97px;
+            position: relative;
         }
         h2 {
             color: #ff00ff;
@@ -57,9 +58,9 @@
     </style>
 </head>
 <body>
-    <h1>Ти Жопа!</h1>
-    <h2>Ти мене Любиш?</h2>
     <div class="container">
+            <h1>Ти Жопа!</h1>
+    <h2>Ти мене Любиш?</h2>
         <button id="yesBtn">Так</button>
         <button id="noBtn">Ні</button>
     </div>
@@ -75,9 +76,11 @@
             heart.classList.add("heart");
             heart.innerHTML = "❤️";
             heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = "-30px";
+            heart.style.position = "fixed";
             heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
             document.body.appendChild(heart);
-
+        
             setTimeout(() => {
                 heart.remove();
             }, 5000);
